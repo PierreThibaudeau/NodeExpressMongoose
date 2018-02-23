@@ -1,14 +1,41 @@
 <% include ./../header.ejs %>
 
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Titre</th>
+        <th>Année de parution</th>
+        <th>Url</th>
+        <th>Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+
     <% if(typeof list !== 'undefined'){ %>
       <% list.forEach(function(item){ %>
-        <%= item %>
-        <a href="http://localhost:3000/library/detail/<%= item._id %>" >Détail</a>
-        <a href="http://localhost:3000/library/update/<%= item._id %>" >Modifier</a>
-        <a href="http://localhost:3000/library/delete/<%= item._id %>" >Supprimer</a>
-        <br>
+        <tr>
+          <td><%= item.type %></td>
+          <td><%= item.title %></td>
+          <td><%= item.year %></td>
+          <td>
+            <a hre="<%= item.url %>"><%= item.url %></a>
+          </td>
+          <td>
+            <a href="http://localhost:3000/library/detail/<%= item._id %>" style="text-decoration:none !important">
+              <i class="fas fa-eye"></i></a>
+            <a href="http://localhost:3000/library/update/<%= item._id %>" style="text-decoration:none !important">
+              <i class="fas fa-edit"></i></a>
+            <a href="http://localhost:3000/library/delete/<%= item._id %>" style="text-decoration:none !important">
+              <i class="fas fa-times"></i></a>
+          </td>
+        </tr>
       <% }) %>
     <% } %>
 
-<% include ./../footer.ejs %>
+    </tbody>
+  </table>
+</div>
 
+<% include ./../footer.ejs %>

@@ -1,8 +1,36 @@
 <% include ./../header.ejs %>
 
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Titre</th>
+        <th>Année de parution</th>
+        <th>Url</th>
+        <th>Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+
     <% if(typeof item !== 'undefined'){ %>
-        <%= item %>
+      <tr>
+        <td><%= item.type %></td>
+        <td><%= item.title %></td>
+        <td><%= item.year %></td>
+        <td>
+          <a hre="<%= item.url %>"><%= item.url %></a>
+        </td>
+        <td>
+          <a href="http://localhost:3000/library/delete/<%= item._id %>" style="text-decoration:none !important">
+             <i class="fas fa-times"></i></a>
+        </td>
+       </tr>
+
     <% } %>
+    </tbody>
+  </table>
+</div>
 
     <form action="/library/update/<%= id %>" method="post"><br>
         <label for="type">Enter Type: </label><br>
@@ -25,6 +53,7 @@
 
         <!-- @todo Formulaire des auteurs -->
 
+        <br>
         <input type="submit" value="OK">
     </form>
 
