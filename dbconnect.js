@@ -10,9 +10,9 @@ module.exports = {
     dbStateMessage : function(mongoose){
         internDbStateMessage(mongoose);
     },
-    connect : function(collectionName){
+    connect : function(){
         var mongoose = require('mongoose');
-        mongoose.connect('mongodb://localhost/' + collectionName );
+        mongoose.connect('mongodb://localhost/library');
 
         internDbStateMessage(mongoose);
 

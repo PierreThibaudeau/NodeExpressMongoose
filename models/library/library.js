@@ -1,5 +1,5 @@
 var dbconnect = require('./../../dbconnect');
-var mongoose = dbconnect.connect('library');
+var mongoose = dbconnect.connect();
 
 var librarySchema = mongoose.Schema({
     _id : Number,
