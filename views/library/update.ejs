@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <% if(typeof item !== 'undefined'){ %>
+        <%= item %>
+    <% } %>
+
+    <form action="/library/update/<%= id %>" method="post"><br>
+        <label for="type">Enter Type: </label><br>
+        <input id="type" type="text" name="type" value="<%= item.type %>"><br>
+
+        <label for="title">Enter title: </label><br>
+        <input id="title" type="text" name="title" value="<%= item.title %>"><br>
+
+        <label for="pages_start">Enter page début: </label><br>
+        <input id="pages_start" type="text" name="pages_start" value="<%= item.pages["start"] %>"><br>
+
+        <label for="pages_end">Enter page fin: </label><br>
+        <input id="pages_end" type="text" name="pages_end" value="<%= item.pages["end"] %>"><br>
+
+        <label for="year">Enter year: </label><br>
+        <input id="year" type="text" name="year" value="<%= item.year %>"><br>
+
+        <label for="url">Enter url: </label><br>
+        <input id="url" type="text" name="url" value="<%= item.url %>"><br>
+
+        <!-- @todo Formulaire des auteurs -->
+
+        <input type="submit" value="OK">
+    </form>
+  </body>
+</html>
