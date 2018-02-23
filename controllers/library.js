@@ -17,7 +17,7 @@ class LibraryCtrl {
     Delete(req, res) {
         var LibraryModel = require('./../models/library/library');
         LibraryModel.findById(req.params.id).remove( function(){
-            res.redirect("library/display");
+            res.redirect("/library/display");
         });
     }
 
@@ -42,7 +42,7 @@ class LibraryCtrl {
             // @todo Gestion des auteurs
 
             result.save().then(function(result){
-                res.redirect('detail/'+result._id);
+                res.redirect('/library/detail/'+result._id);
             });
         });
     }
@@ -66,7 +66,7 @@ class LibraryCtrl {
                 myLibrary.author = [];
 
                 myLibrary.save().then(function(result){
-                     res.redirect('detail/'+result._id);
+                     res.redirect('/library/detail/'+result._id);
                 });
             }
         });

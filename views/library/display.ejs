@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<% include ./../header.ejs %>
 
     <% if(typeof list !== 'undefined'){ %>
       <% list.forEach(function(item){ %>
         <%= item %>
+        <a href="http://localhost:3000/library/detail/<%= item._id %>" >Détail</a>
+        <a href="http://localhost:3000/library/update/<%= item._id %>" >Modifier</a>
+        <a href="http://localhost:3000/library/delete/<%= item._id %>" >Supprimer</a>
         <br>
       <% }) %>
     <% } %>
-  </body>
-</html>
+
+<% include ./../footer.ejs %>
+
